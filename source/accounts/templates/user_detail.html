@@ -3,12 +3,15 @@
 {% block title %}Пользователь{% endblock %}
 
 {% block menu %}
+    {% if request.user == user_obj %}
     <li class="nav-item active">
         <a class="nav-link" href="{% url 'accounts:change' user_obj.pk %}">Редактировать</a>
     </li>
+
     <li class="nav-item active">
         <a class="nav-link" href="{% url "accounts:password_change" user_obj.pk %}">Смена пароля</a>
     </li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
